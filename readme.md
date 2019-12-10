@@ -14,7 +14,7 @@ The following are the technologies that are used in this lab. Any prior knowledg
 
 ## Important Links
 
-• AWS Console - https://aws.amazon.com/console/
+• Access AWS Console - https://aws.amazon.com/console/
 
 ## Repository Contents
 
