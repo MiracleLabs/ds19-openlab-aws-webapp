@@ -1,4 +1,4 @@
-# DS18 Open Lab | Deploying a Web app to AWS S3 and CloudFront 
+# DS19 Open Lab | Deploying a Web app to AWS S3 and CloudFront 
 
 The below file consists of commands and code snippets that will help you complete and understand the lab - Deploying a Web app to AWS S3 and CloudFront.
 

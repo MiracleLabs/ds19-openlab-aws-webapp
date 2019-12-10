@@ -10,13 +10,13 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AppComponent implements OnInit {
   weatherResponse;
-  weatherAddress=['Visakhapatnam','India'];
+  weatherAddress='Visakhapatnam';
   angForm: FormGroup;
   networkAvailability=false;
 
   ngOnInit(){
     this.networkAvailability = !navigator.onLine;
-    this.weatherReport();
+    this.weatherReport(this.weatherAddress);
     this.createForm();
   }
 
@@ -37,31 +37,36 @@ export class AppComponent implements OnInit {
       cityAddress: ['']});
   }
 
-searchCity = function(city){
-  console.log(city);
-  this.http.get('https://weatherappserverfords18.herokuapp.com/address?address='+city).subscribe(res => {
-    console.log(this.weatherAddress);
-    if(res.results.length>0){
-      this.weatherAddress[0]=res.results[0].address_components[0].long_name;
-      this.weatherAddress[1]=res.results[0].address_components[res.results[0].address_components.length-1].long_name;
-      this.weatherReport();
-    }else{
-      alert('Enter correct city');
-    }
-    // this.weatherAddress = res;
+// searchCity = function(city){
+//   console.log(city);
+//   this.http.get('https://weatherappserverfords18.herokuapp.com/address?address='+city).subscribe(res => {
+//     console.log(this.weatherAddress);
+//     if(res.results.length>0){
+//       this.weatherAddress[0]=res.results[0].address_components[0].long_name;
+//       this.weatherAddress[1]=res.results[0].address_components[res.results[0].address_components.length-1].long_name;
+//       this.weatherReport();
+//     }else{
+//       alert('Enter correct city');
+//     }
+//     // this.weatherAddress = res;
+//     // console.log(this.weatherResponse);
+//   })
+// }
+
+weatherReport = function(city){
+  // console.log()
+  this.http.get('https://api.weatherbit.io/v2.0/current?city='+city+'&key=231efb616af04cff81449767b7e8e4e6').subscribe(res => {
     // console.log(this.weatherResponse);
-  })
-}
-
-weatherReport = function(){
-
-  this.http.get('https://weatherappserverfords18.herokuapp.com/weather?city='+this.weatherAddress[0]+'&country='+this.weatherAddress[1]).subscribe(res => {
-    console.log(this.weatherResponse);
-    if(!res.response.error && res.current_observation){
-      this.weatherResponse = res.current_observation;
+    console.log(res);
+    if(res && res.data){
+      console.log(res.data[0]);
+      this.weatherResponse = res.data[0];
     }else{
       alert('Enter correct city');
     }
+  }, err => {
+    console.log(err);
+    alert('Something went wrong. Please try again!');
   })
 }
 
