@@ -13,11 +13,11 @@ Run npm install
 To install Angular CLI
 
 ```
-Run `npm install -g @angular/cli`
+Run npm install -g @angular/cli
 ```
 
 To build your Angular application
 
 ```
-Run `ng build`
+Run ng build
 ```
