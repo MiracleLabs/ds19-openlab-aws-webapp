@@ -1,4 +1,4 @@
-# DS19 Open Lab | Deploying a Web app to AWS S3 and CloudFront open lab
+# DS19 Open Lab | Deploying a Web app to AWS S3 and CloudFront Open Lab
 
 This repository contains the lab for Deploying a Web app to AWS S3 and CloudFront. It is one of the labs brought to you by Miracle's Innovation Labs.
 
